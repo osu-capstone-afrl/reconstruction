@@ -1,0 +1,320 @@
+{
+    "00": {
+        "CellAttributeMatrixName": "CellData",
+        "DataContainerName": "ImageDataContainer",
+        "FileName": "/home/aims-ford/Jared/ex_carpet.jpg",
+        "FilterVersion": "1.0.496",
+        "Filter_Enabled": false,
+        "Filter_Human_Label": "ITK::Image Reader",
+        "Filter_Name": "ITKImageReader",
+        "Filter_Uuid": "{653b7b5c-03cb-5b32-8c3e-3637745e5ff6}",
+        "ImageDataArrayName": "CameraImage"
+    },
+    "01": {
+        "FilterVersion": "1.2.815",
+        "Filter_Enabled": false,
+        "Filter_Human_Label": "Split Multicomponent Attribute Array",
+        "Filter_Name": "SplitAttributeArray",
+        "Filter_Uuid": "{5ecf77f4-a38a-52ab-b4f6-0fb8a9c5cb9c}",
+        "InputArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "CameraImage",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "SplitArraysSuffix": "Component"
+    },
+    "02": {
+        "FilterVersion": "1.2.815",
+        "Filter_Enabled": false,
+        "Filter_Human_Label": "Rename Attribute Array",
+        "Filter_Name": "RenameAttributeArray",
+        "Filter_Uuid": "{53a5f731-2858-5e3e-bd43-8f2cf45d90ec}",
+        "NewArrayName": "Camera_Red",
+        "SelectedArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "CameraImageComponent0",
+            "Data Container Name": "ImageDataContainer"
+        }
+    },
+    "03": {
+        "FilterVersion": "1.2.815",
+        "Filter_Enabled": false,
+        "Filter_Human_Label": "Rename Attribute Array",
+        "Filter_Name": "RenameAttributeArray",
+        "Filter_Uuid": "{53a5f731-2858-5e3e-bd43-8f2cf45d90ec}",
+        "NewArrayName": "Camera_Green",
+        "SelectedArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "CameraImageComponent1",
+            "Data Container Name": "ImageDataContainer"
+        }
+    },
+    "04": {
+        "FilterVersion": "1.2.815",
+        "Filter_Enabled": false,
+        "Filter_Human_Label": "Rename Attribute Array",
+        "Filter_Name": "RenameAttributeArray",
+        "Filter_Uuid": "{53a5f731-2858-5e3e-bd43-8f2cf45d90ec}",
+        "NewArrayName": "Camera_Blue",
+        "SelectedArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "CameraImageComponent2",
+            "Data Container Name": "ImageDataContainer"
+        }
+    },
+    "05": {
+        "FilterVersion": "1.2.815",
+        "Filter_Enabled": true,
+        "Filter_Human_Label": "Pipeline Annotation",
+        "Filter_Name": "PipelineAnnotation",
+        "Filter_Uuid": "{8cc2198b-6a9d-5bf4-b8c0-b0878bb57f10}",
+        "Summary": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\np, li { white-space: pre-wrap; }\n</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Assuming image is already filtered for testing.</p>\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Using filtered image, find the object part.</p></body></html>"
+    },
+    "06": {
+        "CellAttributeMatrixName": "CellData",
+        "DataContainerName": "ImageDataContainer",
+        "FileName": "/home/aims-ford/Jared/processedImage.tif",
+        "FilterVersion": "1.0.496",
+        "Filter_Enabled": true,
+        "Filter_Human_Label": "ITK::Image Reader",
+        "Filter_Name": "ITKImageReader",
+        "Filter_Uuid": "{653b7b5c-03cb-5b32-8c3e-3637745e5ff6}",
+        "ImageDataArrayName": "CameraImage"
+    },
+    "07": {
+        "DestinationArrayName": "Mask_Blacks",
+        "FilterVersion": "1.2.815",
+        "Filter_Enabled": true,
+        "Filter_Human_Label": "Threshold Objects",
+        "Filter_Name": "MultiThresholdObjects",
+        "Filter_Uuid": "{014b7300-cf36-5ede-a751-5faf9b119dae}",
+        "SelectedThresholds": [
+            {
+                "Attribute Array Name": "CameraImage",
+                "Attribute Matrix Name": "CellData",
+                "Comparison Operator": 2,
+                "Comparison Value": 0,
+                "Data Container Name": "ImageDataContainer"
+            }
+        ]
+    },
+    "08": {
+        "FilterVersion": "1.0.496",
+        "Filter_Enabled": true,
+        "Filter_Human_Label": "ITK::Box Mean Image Filter",
+        "Filter_Name": "ITKBoxMeanImage",
+        "Filter_Uuid": "{6138f949-e363-5ca3-bc31-4f3daed65da5}",
+        "NewCellArrayName": "Mask_Blacks_BoxMean",
+        "Radius": {
+            "x": 50,
+            "y": 50,
+            "z": 0
+        },
+        "SaveAsNewArray": 1,
+        "SelectedCellArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "Mask_Blacks",
+            "Data Container Name": "ImageDataContainer"
+        }
+    },
+    "09": {
+        "Direction": 1,
+        "FilterVersion": "6.5.141",
+        "Filter_Enabled": true,
+        "Filter_Human_Label": "Erode/Dilate Mask",
+        "Filter_Name": "ErodeDilateMask",
+        "Filter_Uuid": "{4fff1aa6-4f62-56c4-8ee9-8e28ec2fcbba}",
+        "MaskArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "Mask_Blacks",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "NumIterations": 10,
+        "XDirOn": 1,
+        "YDirOn": 1,
+        "ZDirOn": 0
+    },
+    "10": {
+        "Direction": 0,
+        "FilterVersion": "6.5.141",
+        "Filter_Enabled": true,
+        "Filter_Human_Label": "Erode/Dilate Mask",
+        "Filter_Name": "ErodeDilateMask",
+        "Filter_Uuid": "{4fff1aa6-4f62-56c4-8ee9-8e28ec2fcbba}",
+        "MaskArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "Mask_Blacks",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "NumIterations": 10,
+        "XDirOn": 1,
+        "YDirOn": 1,
+        "ZDirOn": 0
+    },
+    "11": {
+        "FilterVersion": "1.2.815",
+        "Filter_Enabled": false,
+        "Filter_Human_Label": "Convert AttributeArray Data Type",
+        "Filter_Name": "ConvertData",
+        "Filter_Uuid": "{f4ba5fa4-bb5c-5dd1-9429-0dd86d0ecb37}",
+        "OutputArrayName": "Mask_whites_int",
+        "ScalarType": 1,
+        "SelectedCellArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "Mask_Blacks",
+            "Data Container Name": "ImageDataContainer"
+        }
+    },
+    "12": {
+        "FilterVersion": "1.2.815",
+        "Filter_Enabled": true,
+        "Filter_Human_Label": "Convert AttributeArray Data Type",
+        "Filter_Name": "ConvertData",
+        "Filter_Uuid": "{f4ba5fa4-bb5c-5dd1-9429-0dd86d0ecb37}",
+        "OutputArrayName": "Mask_Blacks_Ints",
+        "ScalarType": 1,
+        "SelectedCellArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "Mask_Blacks",
+            "Data Container Name": "ImageDataContainer"
+        }
+    },
+    "13": {
+        "FilterVersion": "1.2.815",
+        "Filter_Enabled": true,
+        "Filter_Human_Label": "Replace Value in Array",
+        "Filter_Name": "ReplaceValueInArray",
+        "Filter_Uuid": "{a37f2e24-7400-5005-b9a7-b2224570cbe9}",
+        "RemoveValue": 1,
+        "ReplaceValue": 255,
+        "SelectedArray": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "Mask_Blacks_Ints",
+            "Data Container Name": "ImageDataContainer"
+        }
+    },
+    "14": {
+        "FillHoles": 0,
+        "FilterVersion": "6.5.141",
+        "Filter_Enabled": false,
+        "Filter_Human_Label": "Isolate Largest Feature (Identify Sample)",
+        "Filter_Name": "IdentifySample",
+        "Filter_Uuid": "{0e8c0818-a3fb-57d4-a5c8-7cb8ae54a40a}",
+        "GoodVoxelsArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "Mask",
+            "Data Container Name": "ImageDataContainer"
+        }
+    },
+    "15": {
+        "ActiveArrayName": "Active",
+        "CellFeatureAttributeMatrixName": "CellFeatureData_BladeObject",
+        "FeatureIdsArrayName": "Feature_BladeObject",
+        "FilterVersion": "6.5.141",
+        "Filter_Enabled": false,
+        "Filter_Human_Label": "Segment Features (Scalar)",
+        "Filter_Name": "ScalarSegmentFeatures",
+        "Filter_Uuid": "{2c5edebf-95d8-511f-b787-90ee2adf485c}",
+        "GoodVoxelsArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "Mask",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "ScalarArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "CameraImage",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "ScalarTolerance": 10000,
+        "UseGoodVoxels": 1
+    },
+    "16": {
+        "CentroidsArrayPath": {
+            "Attribute Matrix Name": "CellFeatureData_BladeObject",
+            "Data Array Name": "Centroids",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "FeatureIdsArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "Feature_BladeObject",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "FilterVersion": "6.5.141",
+        "Filter_Enabled": false,
+        "Filter_Human_Label": "Find Feature Centroids",
+        "Filter_Name": "FindFeatureCentroids",
+        "Filter_Uuid": "{6f8ca36f-2995-5bd3-8672-6b0b80d5b2ca}"
+    },
+    "17": {
+        "AspectRatiosArrayName": "AspectRatios",
+        "AxisEulerAnglesArrayName": "AxisEulerAngles",
+        "AxisLengthsArrayName": "AxisLengths",
+        "CellFeatureAttributeMatrixName": {
+            "Attribute Matrix Name": "CellFeatureData_BladeObject",
+            "Data Array Name": "",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "CentroidsArrayPath": {
+            "Attribute Matrix Name": "CellFeatureData_BladeObject",
+            "Data Array Name": "Centroids",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "FeatureIdsArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "Feature_BladeObject",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "FilterVersion": "6.5.141",
+        "Filter_Enabled": false,
+        "Filter_Human_Label": "Find Feature Shapes",
+        "Filter_Name": "FindShapes",
+        "Filter_Uuid": "{3b0ababf-9c8d-538d-96af-e40775c4f0ab}",
+        "Omega3sArrayName": "Omega3s",
+        "VolumesArrayName": "Volumes"
+    },
+    "18": {
+        "CellFeatureAttributeMatrixPath": {
+            "Attribute Matrix Name": "CellFeatureData_BladeObject",
+            "Data Array Name": "",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "DelimiterChoiceInt": 0,
+        "FeatureDataFile": "/home/aims-ford/Jared/export_bladeBlob_featureData.csv",
+        "FilterVersion": "1.2.815",
+        "Filter_Enabled": false,
+        "Filter_Human_Label": "Export Feature Data as CSV File",
+        "Filter_Name": "FeatureDataCSVWriter",
+        "Filter_Uuid": "{737b8d5a-8622-50f9-9a8a-bfdb57608891}",
+        "WriteNeighborListData": 0,
+        "WriteNumFeaturesLine": 0
+    },
+    "19": {
+        "FileName": "/home/aims-ford/Jared/export_image_test.tiff",
+        "FilterVersion": "1.0.496",
+        "Filter_Enabled": true,
+        "Filter_Human_Label": "ITK::Image Writer",
+        "Filter_Name": "ITKImageWriter",
+        "Filter_Uuid": "{11473711-f94d-5d96-b749-ec36a81ad338}",
+        "ImageArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "Mask_Blacks_Ints",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "Plane": 0
+    },
+    "20": {
+        "FilterVersion": "1.2.815",
+        "Filter_Enabled": true,
+        "Filter_Human_Label": "Write DREAM.3D Data File",
+        "Filter_Name": "DataContainerWriter",
+        "Filter_Uuid": "{3fcd4c43-9d75-5b86-aad4-4441bc914f37}",
+        "OutputFile": "/home/aims-ford/Jared/export_bladeProcessing.dream3d",
+        "WriteTimeSeries": 0,
+        "WriteXdmfFile": 1
+    },
+    "PipelineBuilder": {
+        "Name": "objectDimension_v_demo",
+        "Number_Filters": 21,
+        "Version": 6
+    }
+}

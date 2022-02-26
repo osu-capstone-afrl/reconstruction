@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE Xdmf SYSTEM "Xdmf.dtd"[]>
+<Xdmf xmlns:xi="http://www.w3.org/2003/XInclude" Version="2.2">
+ <Domain>
+  <!-- *************** START OF ImageDataContainer *************** -->
+  <Grid Name="ImageDataContainer" GridType="Uniform">
+    <Topology TopologyType="3DCoRectMesh" Dimensions="2 3025 4033 "></Topology>
+    <Geometry Type="ORIGIN_DXDYDZ">
+      <!-- Origin  Z, Y, X -->
+      <DataItem Format="XML" Dimensions="3">0 0 0</DataItem>
+      <!-- DxDyDz (Spacing/Resolution) Z, Y, X -->
+      <DataItem Format="XML" Dimensions="3">1 1 1</DataItem>
+    </Geometry>
+    <Attribute Name="CameraImage" AttributeType="Scalar" Center="Cell">
+      <DataItem Format="HDF" Dimensions="1 3024 4032 1" NumberType="UChar" Precision="1" >
+        export_bladeProcessing.dream3d:/DataContainers/ImageDataContainer/CellData/CameraImage
+      </DataItem>
+    </Attribute>
+    <Attribute Name="Mask_Blacks" AttributeType="Scalar" Center="Cell">
+      <DataItem Format="HDF" Dimensions="1 3024 4032 1" NumberType="uchar" Precision="1" >
+        export_bladeProcessing.dream3d:/DataContainers/ImageDataContainer/CellData/Mask_Blacks
+      </DataItem>
+    </Attribute>
+    <Attribute Name="Mask_Blacks_Ints" AttributeType="Scalar" Center="Cell">
+      <DataItem Format="HDF" Dimensions="1 3024 4032 1" NumberType="UChar" Precision="1" >
+        export_bladeProcessing.dream3d:/DataContainers/ImageDataContainer/CellData/Mask_Blacks_Ints
+      </DataItem>
+    </Attribute>
+  </Grid>
+  <!-- *************** END OF ImageDataContainer *************** -->
+ </Domain>
+</Xdmf>
