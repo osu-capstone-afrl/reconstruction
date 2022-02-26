@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE Xdmf SYSTEM "Xdmf.dtd"[]>
+<Xdmf xmlns:xi="http://www.w3.org/2003/XInclude" Version="2.2">
+ <Domain>
+  <!-- *************** START OF ImageDataContainer *************** -->
+  <Grid Name="ImageDataContainer" GridType="Uniform">
+    <Topology TopologyType="3DCoRectMesh" Dimensions="2 2433 3649 "></Topology>
+    <Geometry Type="ORIGIN_DXDYDZ">
+      <!-- Origin  Z, Y, X -->
+      <DataItem Format="XML" Dimensions="3">0 0 0</DataItem>
+      <!-- DxDyDz (Spacing/Resolution) Z, Y, X -->
+      <DataItem Format="XML" Dimensions="3">1 1 1</DataItem>
+    </Geometry>
+    <Attribute Name="FeatureIds_segmented_Foreground" AttributeType="Scalar" Center="Cell">
+      <DataItem Format="HDF" Dimensions="1 2432 3648 1" NumberType="Int" Precision="4" >
+        edgeFilter_mask.dream3d:/DataContainers/ImageDataContainer/CellData/FeatureIds_segmented_Foreground
+      </DataItem>
+    </Attribute>
+    <Attribute Name="Foreground_Mask" AttributeType="Scalar" Center="Cell">
+      <DataItem Format="HDF" Dimensions="1 2432 3648 1" NumberType="uchar" Precision="1" >
+        edgeFilter_mask.dream3d:/DataContainers/ImageDataContainer/CellData/Foreground_Mask
+      </DataItem>
+    </Attribute>
+    <Attribute Name="GrayScaleImageData" AttributeType="Scalar" Center="Cell">
+      <DataItem Format="HDF" Dimensions="1 2432 3648 1" NumberType="UChar" Precision="1" >
+        edgeFilter_mask.dream3d:/DataContainers/ImageDataContainer/CellData/GrayScaleImageData
+      </DataItem>
+    </Attribute>
+    <Attribute Name="ImageData" AttributeType="Vector" Center="Cell">
+      <DataItem Format="HDF" Dimensions="1 2432 3648 3" NumberType="UChar" Precision="1" >
+        edgeFilter_mask.dream3d:/DataContainers/ImageDataContainer/CellData/ImageData
+      </DataItem>
+    </Attribute>
+    <Attribute Name="Obj_FlaggedFeatures" AttributeType="Scalar" Center="Cell">
+      <DataItem Format="HDF" Dimensions="1 2432 3648 1" NumberType="uchar" Precision="1" >
+        edgeFilter_mask.dream3d:/DataContainers/ImageDataContainer/CellData/Obj_FlaggedFeatures
+      </DataItem>
+    </Attribute>
+    <Attribute Name="Thresh_Otsu" AttributeType="Scalar" Center="Cell">
+      <DataItem Format="HDF" Dimensions="1 2432 3648 1" NumberType="UChar" Precision="1" >
+        edgeFilter_mask.dream3d:/DataContainers/ImageDataContainer/CellData/Thresh_Otsu
+      </DataItem>
+    </Attribute>
+  </Grid>
+  <!-- *************** END OF ImageDataContainer *************** -->
+ </Domain>
+</Xdmf>
